@@ -18,4 +18,4 @@ projected_savings = annual_savings + interest
 
 # Output Results
 print(f"Your monthly savings are ${int(monthly_savings)}.")
-print(f"Projected savings after one year, with interest, is: ${int(projected_savings)}")
+print(f"Projected savings after one year, with interest, is: ${int(projected_savings)}.")
