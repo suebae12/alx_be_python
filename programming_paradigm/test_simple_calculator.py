@@ -73,8 +73,8 @@ class TestSimpleCalculator(unittest.TestCase):
         # Use assertAlmostEqual for floating point comparisons
         self.assertAlmostEqual(self.calc.multiply(0.1, 0.2), 0.02, places=7)
 
-    def test_division_normal(self):
-        """Test the division method with normal cases."""
+    def test_division(self):
+        """Test the division method with normal cases and division by zero."""
         # Test basic division
         self.assertEqual(self.calc.divide(6, 2), 3.0)
         self.assertEqual(self.calc.divide(5, 2), 2.5)
@@ -89,9 +89,7 @@ class TestSimpleCalculator(unittest.TestCase):
         self.assertEqual(self.calc.divide(5.5, 2.0), 2.75)
         # Use assertAlmostEqual for floating point comparisons
         self.assertAlmostEqual(self.calc.divide(1.0, 3.0), 1/3, places=7)
-
-    def test_division_by_zero(self):
-        """Test the division method with division by zero."""
+        
         # Test division by zero returns None
         self.assertIsNone(self.calc.divide(5, 0))
         self.assertIsNone(self.calc.divide(0, 0))
