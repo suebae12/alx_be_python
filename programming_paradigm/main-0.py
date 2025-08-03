@@ -15,18 +15,23 @@ def main():
     command_parts = command_input.split(':')
 
     command = command_parts[0]
-    try:
-        amount = float(command_parts[1]) if len(command_parts) > 1 else None
-    except ValueError:
-        print("Invalid amount format. Please use a valid number.")
-        sys.exit(1)
+    
+    # Handle display command without amount
+    if command == "display":
+        amount = None
+    else:
+        try:
+            amount = float(command_parts[1]) if len(command_parts) > 1 else None
+        except ValueError:
+            print("Invalid amount format. Please use a valid number.")
+            sys.exit(1)
 
     if command == "deposit" and amount is not None:
         account.deposit(amount)
-        print(f"Deposited: ${amount}")
+        print(f"Deposited: ${int(amount)}")
     elif command == "withdraw" and amount is not None:
         if account.withdraw(amount):
-            print(f"Withdrew: ${amount}")
+            print(f"Withdrew: ${int(amount)}")
         else:
             print("Insufficient funds.")
     elif command == "display":
